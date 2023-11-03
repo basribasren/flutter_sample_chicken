@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/prestarterlist_item_model.dart';import 'package:basri_s_application4/presentation/single_batch_stocks_screen/models/single_batch_stocks_model.dart';part 'single_batch_stocks_event.dart';part 'single_batch_stocks_state.dart';/// A bloc that manages the state of a SingleBatchStocks according to the event that is dispatched to it.
+class SingleBatchStocksBloc extends Bloc<SingleBatchStocksEvent, SingleBatchStocksState> {SingleBatchStocksBloc(SingleBatchStocksState initialState) : super(initialState) { on<SingleBatchStocksInitialEvent>(_onInitialize); }
+
+_onInitialize(SingleBatchStocksInitialEvent event, Emitter<SingleBatchStocksState> emit, ) async  { emit(state.copyWith(singleBatchStocksModelObj: state.singleBatchStocksModelObj?.copyWith(prestarterlistItemList: fillPrestarterlistItemList()))); } 
+List<PrestarterlistItemModel> fillPrestarterlistItemList() { return [PrestarterlistItemModel(preStarter: "Pre Starter", date: "17/12/2022"), PrestarterlistItemModel(preStarter: "Pre Starter", date: "17/12/2022"), PrestarterlistItemModel(preStarter: "Pre Starter", date: "17/12/2022"), PrestarterlistItemModel(preStarter: "Pre Starter", date: "17/12/2022")]; } 
+ }

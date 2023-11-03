@@ -1,0 +1,29 @@
+import 'bloc/new_batch_bloc.dart';import 'models/new_batch_model.dart';import 'package:basri_s_application4/core/app_export.dart';import 'package:basri_s_application4/core/utils/validation_functions.dart';import 'package:basri_s_application4/widgets/app_bar/appbar_leading_image.dart';import 'package:basri_s_application4/widgets/app_bar/appbar_title.dart';import 'package:basri_s_application4/widgets/app_bar/appbar_trailing_image.dart';import 'package:basri_s_application4/widgets/app_bar/custom_app_bar.dart';import 'package:basri_s_application4/widgets/custom_elevated_button.dart';import 'package:basri_s_application4/widgets/custom_text_form_field.dart';import 'package:flutter/material.dart';
+// ignore_for_file: must_be_immutable
+class NewBatchScreen extends StatelessWidget {NewBatchScreen({Key? key}) : super(key: key);
+
+GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+static Widget builder(BuildContext context) { return BlocProvider<NewBatchBloc>(create: (context) => NewBatchBloc(NewBatchState(newBatchModelObj: NewBatchModel()))..add(NewBatchInitialEvent()), child: NewBatchScreen()); } 
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(resizeToAvoidBottomInset: false, appBar: _buildAppBar(context), body: Form(key: _formKey, child: Container(width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 11.v), child: Column(children: [_buildDateEditText(context), SizedBox(height: 15.v), _buildNameEditText(context), SizedBox(height: 15.v), _buildMenuThirtySixEditText(context), SizedBox(height: 14.v), _buildNumBirdsEditText(context), SizedBox(height: 15.v), _buildCostPerBirdEditText(context), SizedBox(height: 15.v), _buildSupplierEditText(context), SizedBox(height: 5.v)]))), bottomNavigationBar: _buildSubmitButton(context))); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar(BuildContext context) { return CustomAppBar(height: 55.v, leadingWidth: 42.h, leading: AppbarLeadingImage(imagePath: ImageConstant.imgArrow1, margin: EdgeInsets.only(left: 24.h, top: 20.v, bottom: 16.v), onTap: () {onTapArrowOne(context);}), title: AppbarTitle(text: "lbl_new_batch".tr, margin: EdgeInsets.only(left: 26.h)), actions: [AppbarTrailingImage(imagePath: ImageConstant.imgDots1, margin: EdgeInsets.fromLTRB(16.h, 13.v, 16.h, 19.v))]); } 
+/// Section Widget
+Widget _buildDateEditText(BuildContext context) { return BlocSelector<NewBatchBloc, NewBatchState, TextEditingController?>(selector: (state) => state.dateEditTextController, builder: (context, dateEditTextController) {return CustomTextFormField(controller: dateEditTextController, hintText: "lbl_date".tr, suffix: Container(margin: EdgeInsets.fromLTRB(30.h, 19.v, 21.h, 19.v), child: CustomImageView(imagePath: ImageConstant.imgVector, height: 18.v, width: 16.h)), suffixConstraints: BoxConstraints(maxHeight: 58.v), contentPadding: EdgeInsets.only(left: 21.h, top: 19.v, bottom: 19.v));}); } 
+/// Section Widget
+Widget _buildNameEditText(BuildContext context) { return BlocSelector<NewBatchBloc, NewBatchState, TextEditingController?>(selector: (state) => state.nameEditTextController, builder: (context, nameEditTextController) {return CustomTextFormField(controller: nameEditTextController, hintText: "lbl_batch_name".tr, validator: (value) {if (!isText(value)) {return "err_msg_please_enter_valid_text".tr;} return null;});}); } 
+/// Section Widget
+Widget _buildMenuThirtySixEditText(BuildContext context) { return BlocSelector<NewBatchBloc, NewBatchState, TextEditingController?>(selector: (state) => state.menuThirtySixEditTextController, builder: (context, menuThirtySixEditTextController) {return CustomTextFormField(controller: menuThirtySixEditTextController, hintText: "lbl_breed".tr, suffix: Container(margin: EdgeInsets.fromLTRB(30.h, 21.v, 22.h, 21.v), child: CustomImageView(imagePath: ImageConstant.imgMenu136, height: 16.adaptSize, width: 16.adaptSize)), suffixConstraints: BoxConstraints(maxHeight: 59.v), contentPadding: EdgeInsets.only(left: 21.h, top: 20.v, bottom: 20.v));}); } 
+/// Section Widget
+Widget _buildNumBirdsEditText(BuildContext context) { return BlocSelector<NewBatchBloc, NewBatchState, TextEditingController?>(selector: (state) => state.numBirdsEditTextController, builder: (context, numBirdsEditTextController) {return CustomTextFormField(controller: numBirdsEditTextController, hintText: "lbl_number_of_birds".tr, textInputType: TextInputType.number, validator: (value) {if (!isNumeric(value)) {return "err_msg_please_enter_valid_number".tr;} return null;});}); } 
+/// Section Widget
+Widget _buildCostPerBirdEditText(BuildContext context) { return BlocSelector<NewBatchBloc, NewBatchState, TextEditingController?>(selector: (state) => state.costPerBirdEditTextController, builder: (context, costPerBirdEditTextController) {return CustomTextFormField(controller: costPerBirdEditTextController, hintText: "lbl_cost_per_bird".tr);}); } 
+/// Section Widget
+Widget _buildSupplierEditText(BuildContext context) { return BlocSelector<NewBatchBloc, NewBatchState, TextEditingController?>(selector: (state) => state.supplierEditTextController, builder: (context, supplierEditTextController) {return CustomTextFormField(controller: supplierEditTextController, hintText: "lbl_supplier".tr, textInputAction: TextInputAction.done);}); } 
+/// Section Widget
+Widget _buildSubmitButton(BuildContext context) { return CustomElevatedButton(text: "lbl_submit".tr, margin: EdgeInsets.only(left: 16.h, right: 16.h, bottom: 30.v), onPressed: () {onTapSubmitButton(context);}); } 
+/// Navigates to the batchesTabContainerScreen when the action is triggered.
+onTapArrowOne(BuildContext context) { NavigatorService.pushNamed(AppRoutes.batchesTabContainerScreen, ); } 
+/// Navigates to the batchesTabContainerScreen when the action is triggered.
+onTapSubmitButton(BuildContext context) { NavigatorService.pushNamed(AppRoutes.batchesTabContainerScreen, ); } 
+ }

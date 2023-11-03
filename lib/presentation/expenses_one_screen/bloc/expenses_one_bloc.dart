@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/expenseslist_item_model.dart';import 'package:basri_s_application4/presentation/expenses_one_screen/models/expenses_one_model.dart';part 'expenses_one_event.dart';part 'expenses_one_state.dart';/// A bloc that manages the state of a ExpensesOne according to the event that is dispatched to it.
+class ExpensesOneBloc extends Bloc<ExpensesOneEvent, ExpensesOneState> {ExpensesOneBloc(ExpensesOneState initialState) : super(initialState) { on<ExpensesOneInitialEvent>(_onInitialize); }
+
+_onInitialize(ExpensesOneInitialEvent event, Emitter<ExpensesOneState> emit, ) async  { emit(state.copyWith(expensesOneModelObj: state.expensesOneModelObj?.copyWith(expenseslistItemList: fillExpenseslistItemList()))); } 
+List<ExpenseslistItemModel> fillExpenseslistItemList() { return [ExpenseslistItemModel(chicks: "Chicks"), ExpenseslistItemModel(chicks: "Cleaning"), ExpenseslistItemModel(chicks: "Debeaking"), ExpenseslistItemModel(chicks: "Electricity"), ExpenseslistItemModel(chicks: "Feed"), ExpenseslistItemModel(chicks: "Labour"), ExpenseslistItemModel(chicks: "Medicine"), ExpenseslistItemModel(chicks: "Transportation"), ExpenseslistItemModel(chicks: "Vaccination")]; } 
+ }

@@ -1,0 +1,9 @@
+import 'bloc/homepage_sell_two_bloc.dart';import 'models/homepage_sell_two_model.dart';import 'package:basri_s_application4/core/app_export.dart';import 'package:basri_s_application4/widgets/custom_elevated_button.dart';import 'package:flutter/material.dart';class HomepageSellTwoDialog extends StatelessWidget {const HomepageSellTwoDialog({Key? key}) : super(key: key);
+
+static Widget builder(BuildContext context) { return BlocProvider<HomepageSellTwoBloc>(create: (context) => HomepageSellTwoBloc(HomepageSellTwoState(homepageSellTwoModelObj: HomepageSellTwoModel()))..add(HomepageSellTwoInitialEvent()), child: HomepageSellTwoDialog()); } 
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SingleChildScrollView(child: _buildViewAdSection(context)); } 
+/// Section Widget
+Widget _buildViewAdSection(BuildContext context) { return GestureDetector(onTap: () {onTapViewAdSection(context);}, child: Container(margin: EdgeInsets.only(left: 38.h, right: 38.h, bottom: 258.v), padding: EdgeInsets.symmetric(horizontal: 39.h, vertical: 38.v), decoration: AppDecoration.fillOnPrimaryContainer.copyWith(borderRadius: BorderRadiusStyle.circleBorder22), child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.end, children: [SizedBox(height: 19.v), CustomImageView(imagePath: ImageConstant.imgSticker, height: 109.adaptSize, width: 109.adaptSize), SizedBox(height: 44.v), Text("lbl_ad_posted".tr, style: theme.textTheme.headlineMedium), SizedBox(height: 30.v), CustomElevatedButton(height: 40.v, text: "lbl_view_ad".tr, margin: EdgeInsets.only(left: 6.h), buttonTextStyle: CustomTextStyles.titleMediumBahnschriftOnPrimaryContainerBold)]))); } 
+/// Navigates to the homepageSellScreen when the action is triggered.
+onTapViewAdSection(BuildContext context) { NavigatorService.pushNamed(AppRoutes.homepageSellScreen, ); } 
+ }

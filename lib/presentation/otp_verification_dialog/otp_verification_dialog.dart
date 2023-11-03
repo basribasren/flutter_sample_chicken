@@ -1,0 +1,7 @@
+import 'bloc/otp_verification_bloc.dart';import 'models/otp_verification_model.dart';import 'package:basri_s_application4/core/app_export.dart';import 'package:flutter/material.dart';class OtpVerificationDialog extends StatelessWidget {const OtpVerificationDialog({Key? key}) : super(key: key);
+
+static Widget builder(BuildContext context) { return BlocProvider<OtpVerificationBloc>(create: (context) => OtpVerificationBloc(OtpVerificationState(otpVerificationModelObj: OtpVerificationModel()))..add(OtpVerificationInitialEvent()), child: OtpVerificationDialog()); } 
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return GestureDetector(onTap: () {onTapOtpVerification(context);}, child: Container(width: 314.h, padding: EdgeInsets.symmetric(horizontal: 50.h, vertical: 57.v), decoration: AppDecoration.fillOnPrimaryContainer.copyWith(borderRadius: BorderRadiusStyle.circleBorder22), child: Column(mainAxisSize: MainAxisSize.min, children: [CustomImageView(imagePath: ImageConstant.imgSticker, height: 109.adaptSize, width: 109.adaptSize), SizedBox(height: 47.v), Text("lbl_registered".tr, style: theme.textTheme.headlineMedium), SizedBox(height: 23.v), Text("msg_you_registered_successfully".tr, style: CustomTextStyles.bodyLarge16), SizedBox(height: 52.v)]))); } 
+/// Navigates to the createProfileScreen when the action is triggered.
+onTapOtpVerification(BuildContext context) { NavigatorService.pushNamed(AppRoutes.createProfileScreen, ); } 
+ }

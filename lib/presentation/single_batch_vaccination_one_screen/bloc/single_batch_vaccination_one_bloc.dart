@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application4/presentation/single_batch_vaccination_one_screen/models/single_batch_vaccination_one_model.dart';part 'single_batch_vaccination_one_event.dart';part 'single_batch_vaccination_one_state.dart';/// A bloc that manages the state of a SingleBatchVaccinationOne according to the event that is dispatched to it.
+class SingleBatchVaccinationOneBloc extends Bloc<SingleBatchVaccinationOneEvent, SingleBatchVaccinationOneState> {SingleBatchVaccinationOneBloc(SingleBatchVaccinationOneState initialState) : super(initialState) { on<SingleBatchVaccinationOneInitialEvent>(_onInitialize); }
+
+_onInitialize(SingleBatchVaccinationOneInitialEvent event, Emitter<SingleBatchVaccinationOneState> emit, ) async  { emit(state.copyWith(addVaccinationDateController: TextEditingController(), methodValueController: TextEditingController(), descriptionValueController: TextEditingController())); } 
+ }

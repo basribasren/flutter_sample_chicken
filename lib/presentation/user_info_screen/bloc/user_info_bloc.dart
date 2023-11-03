@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application4/presentation/user_info_screen/models/user_info_model.dart';part 'user_info_event.dart';part 'user_info_state.dart';/// A bloc that manages the state of a UserInfo according to the event that is dispatched to it.
+class UserInfoBloc extends Bloc<UserInfoEvent, UserInfoState> {UserInfoBloc(UserInfoState initialState) : super(initialState) { on<UserInfoInitialEvent>(_onInitialize); }
+
+_onInitialize(UserInfoInitialEvent event, Emitter<UserInfoState> emit, ) async  { emit(state.copyWith(profileUserTwoNameController: TextEditingController(), profileUserTwoEmailController: TextEditingController(), profileUserTwoNameController1: TextEditingController(), countryController: TextEditingController(), stateController: TextEditingController(), cityController: TextEditingController(), villageController: TextEditingController(), cityController1: TextEditingController(), farmController: TextEditingController())); } 
+ }

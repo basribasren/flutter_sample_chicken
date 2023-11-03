@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/userprofile_item_model.dart';import 'package:basri_s_application4/presentation/my_ads_screen/models/my_ads_model.dart';part 'my_ads_event.dart';part 'my_ads_state.dart';/// A bloc that manages the state of a MyAds according to the event that is dispatched to it.
+class MyAdsBloc extends Bloc<MyAdsEvent, MyAdsState> {MyAdsBloc(MyAdsState initialState) : super(initialState) { on<MyAdsInitialEvent>(_onInitialize); }
+
+_onInitialize(MyAdsInitialEvent event, Emitter<MyAdsState> emit, ) async  { emit(state.copyWith(myAdsModelObj: state.myAdsModelObj?.copyWith(userprofileItemList: fillUserprofileItemList()))); } 
+List<UserprofileItemModel> fillUserprofileItemList() { return [UserprofileItemModel(userImage: ImageConstant.imgPremiumPhoto194x94, userName: "Broiler", posted: "Posted", quantity: "Qty.: ", datePosted: "Posted On: 22/11/22"), UserprofileItemModel(userImage: ImageConstant.img30112020EggsP, userName: "Eggs", posted: "Sold", quantity: "Qty.: ", datePosted: "Posted On: 12/12/22"), UserprofileItemModel(userImage: ImageConstant.imgPremiumPhoto194x94, userName: "Deshi", posted: "Posted", quantity: "Qty.: ", datePosted: "Posted On: 13/01/23")]; } 
+ }

@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application4/presentation/inventory_add_one_screen/models/inventory_add_one_model.dart';part 'inventory_add_one_event.dart';part 'inventory_add_one_state.dart';/// A bloc that manages the state of a InventoryAddOne according to the event that is dispatched to it.
+class InventoryAddOneBloc extends Bloc<InventoryAddOneEvent, InventoryAddOneState> {InventoryAddOneBloc(InventoryAddOneState initialState) : super(initialState) { on<InventoryAddOneInitialEvent>(_onInitialize); }
+
+_onInitialize(InventoryAddOneInitialEvent event, Emitter<InventoryAddOneState> emit, ) async  { emit(state.copyWith(orderNumberController: TextEditingController(), feedTypeController: TextEditingController(), feedCompanyController: TextEditingController(), weightController: TextEditingController(), priceController: TextEditingController(), totalController: TextEditingController())); } 
+ }

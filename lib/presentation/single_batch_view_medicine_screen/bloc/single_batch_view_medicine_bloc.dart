@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/day_item_model.dart';import 'package:basri_s_application4/presentation/single_batch_view_medicine_screen/models/single_batch_view_medicine_model.dart';part 'single_batch_view_medicine_event.dart';part 'single_batch_view_medicine_state.dart';/// A bloc that manages the state of a SingleBatchViewMedicine according to the event that is dispatched to it.
+class SingleBatchViewMedicineBloc extends Bloc<SingleBatchViewMedicineEvent, SingleBatchViewMedicineState> {SingleBatchViewMedicineBloc(SingleBatchViewMedicineState initialState) : super(initialState) { on<SingleBatchViewMedicineInitialEvent>(_onInitialize); }
+
+_onInitialize(SingleBatchViewMedicineInitialEvent event, Emitter<SingleBatchViewMedicineState> emit, ) async  { emit(state.copyWith(singleBatchViewMedicineModelObj: state.singleBatchViewMedicineModelObj?.copyWith(dayItemList: fillDayItemList()))); } 
+List<DayItemModel> fillDayItemList() { return [DayItemModel(day: "Day 1", medicineName: "Medicine Name"), DayItemModel(day: "Day 2", medicineName: "Medicine Name"), DayItemModel(day: "Day 3", medicineName: "Medicine Name"), DayItemModel(day: "Day 4", medicineName: "Medicine Name")]; } 
+ }
