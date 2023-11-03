@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application4/presentation/homepage_sell_screen/models/homepage_sell_model.dart';part 'homepage_sell_event.dart';part 'homepage_sell_state.dart';/// A bloc that manages the state of a HomepageSell according to the event that is dispatched to it.
+class HomepageSellBloc extends Bloc<HomepageSellEvent, HomepageSellState> {HomepageSellBloc(HomepageSellState initialState) : super(initialState) { on<HomepageSellInitialEvent>(_onInitialize); }
+
+_onInitialize(HomepageSellInitialEvent event, Emitter<HomepageSellState> emit, ) async  { emit(state.copyWith(categoryLabelController: TextEditingController(), quantityLabelController: TextEditingController(), contactNumberLabelController: TextEditingController(), stateLabelController: TextEditingController(), cityController: TextEditingController(), villageLabelController: TextEditingController(), descriptionLabelController: TextEditingController())); } 
+ }

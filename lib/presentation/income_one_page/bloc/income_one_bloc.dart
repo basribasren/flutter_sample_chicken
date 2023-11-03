@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/incomelist_item_model.dart';import 'package:basri_s_application4/presentation/income_one_page/models/income_one_model.dart';part 'income_one_event.dart';part 'income_one_state.dart';/// A bloc that manages the state of a IncomeOne according to the event that is dispatched to it.
+class IncomeOneBloc extends Bloc<IncomeOneEvent, IncomeOneState> {IncomeOneBloc(IncomeOneState initialState) : super(initialState) { on<IncomeOneInitialEvent>(_onInitialize); }
+
+_onInitialize(IncomeOneInitialEvent event, Emitter<IncomeOneState> emit, ) async  { emit(state.copyWith(incomeOneModelObj: state.incomeOneModelObj?.copyWith(incomelistItemList: fillIncomelistItemList()))); } 
+List<IncomelistItemModel> fillIncomelistItemList() { return [IncomelistItemModel(chicks: "Chicks"), IncomelistItemModel(chicks: "Lorem ipsum"), IncomelistItemModel(chicks: "Lorem ipsum"), IncomelistItemModel(chicks: "Lorem ipsum"), IncomelistItemModel(chicks: "Lorem ipsum"), IncomelistItemModel(chicks: "Lorem ipsum"), IncomelistItemModel(chicks: "Lorem ipsum"), IncomelistItemModel(chicks: "Lorem ipsum"), IncomelistItemModel(chicks: "Lorem ipsum")]; } 
+ }

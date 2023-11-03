@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application4/presentation/create_profile_one_screen/models/create_profile_one_model.dart';part 'create_profile_one_event.dart';part 'create_profile_one_state.dart';/// A bloc that manages the state of a CreateProfileOne according to the event that is dispatched to it.
+class CreateProfileOneBloc extends Bloc<CreateProfileOneEvent, CreateProfileOneState> {CreateProfileOneBloc(CreateProfileOneState initialState) : super(initialState) { on<CreateProfileOneInitialEvent>(_onInitialize); }
+
+_onInitialize(CreateProfileOneInitialEvent event, Emitter<CreateProfileOneState> emit, ) async  { emit(state.copyWith(profileUserTwoNameController: TextEditingController(), profileUserTwoEmailController: TextEditingController(), profileUserTwoNameController1: TextEditingController(), countryController: TextEditingController(), stateController: TextEditingController(), cityController: TextEditingController(), villageController: TextEditingController(), cityController1: TextEditingController(), farmController: TextEditingController())); } 
+ }

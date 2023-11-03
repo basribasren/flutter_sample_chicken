@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application4/presentation/vaccination_schedule_six_screen/models/vaccination_schedule_six_model.dart';part 'vaccination_schedule_six_event.dart';part 'vaccination_schedule_six_state.dart';/// A bloc that manages the state of a VaccinationScheduleSix according to the event that is dispatched to it.
+class VaccinationScheduleSixBloc extends Bloc<VaccinationScheduleSixEvent, VaccinationScheduleSixState> {VaccinationScheduleSixBloc(VaccinationScheduleSixState initialState) : super(initialState) { on<VaccinationScheduleSixInitialEvent>(_onInitialize); }
+
+_onInitialize(VaccinationScheduleSixInitialEvent event, Emitter<VaccinationScheduleSixState> emit, ) async  { emit(state.copyWith(menuFortyController: TextEditingController(), dayController: TextEditingController(), menuThirtySevenController: TextEditingController(), menuThirtyEightController: TextEditingController())); } 
+ }

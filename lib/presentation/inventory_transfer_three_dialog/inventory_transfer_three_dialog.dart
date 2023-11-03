@@ -1,0 +1,7 @@
+import 'bloc/inventory_transfer_three_bloc.dart';import 'models/inventory_transfer_three_model.dart';import 'package:basri_s_application4/core/app_export.dart';import 'package:flutter/material.dart';class InventoryTransferThreeDialog extends StatelessWidget {const InventoryTransferThreeDialog({Key? key}) : super(key: key);
+
+static Widget builder(BuildContext context) { return BlocProvider<InventoryTransferThreeBloc>(create: (context) => InventoryTransferThreeBloc(InventoryTransferThreeState(inventoryTransferThreeModelObj: InventoryTransferThreeModel()))..add(InventoryTransferThreeInitialEvent()), child: InventoryTransferThreeDialog()); } 
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return GestureDetector(onTap: () {onTapInventoryTransfer(context);}, child: Container(width: 314.h, padding: EdgeInsets.symmetric(horizontal: 35.h, vertical: 57.v), decoration: AppDecoration.fillOnPrimaryContainer.copyWith(borderRadius: BorderRadiusStyle.circleBorder22), child: Column(mainAxisSize: MainAxisSize.min, children: [CustomImageView(imagePath: ImageConstant.imgSticker, height: 109.adaptSize, width: 109.adaptSize), SizedBox(height: 44.v), Text("msg_feed_transferred".tr, style: theme.textTheme.headlineMedium), SizedBox(height: 12.v)]))); } 
+/// Navigates to the inventoryTransferOneScreen when the action is triggered.
+onTapInventoryTransfer(BuildContext context) { NavigatorService.pushNamed(AppRoutes.inventoryTransferOneScreen, ); } 
+ }

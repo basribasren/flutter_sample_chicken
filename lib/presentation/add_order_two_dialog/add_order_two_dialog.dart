@@ -1,0 +1,7 @@
+import 'bloc/add_order_two_bloc.dart';import 'models/add_order_two_model.dart';import 'package:basri_s_application4/core/app_export.dart';import 'package:flutter/material.dart';class AddOrderTwoDialog extends StatelessWidget {const AddOrderTwoDialog({Key? key}) : super(key: key);
+
+static Widget builder(BuildContext context) { return BlocProvider<AddOrderTwoBloc>(create: (context) => AddOrderTwoBloc(AddOrderTwoState(addOrderTwoModelObj: AddOrderTwoModel()))..add(AddOrderTwoInitialEvent()), child: AddOrderTwoDialog()); } 
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return GestureDetector(onTap: () {onTapStickerSection(context);}, child: Container(width: 314.h, padding: EdgeInsets.symmetric(horizontal: 63.h, vertical: 57.v), decoration: AppDecoration.fillOnPrimaryContainer.copyWith(borderRadius: BorderRadiusStyle.circleBorder22), child: Column(mainAxisSize: MainAxisSize.min, children: [CustomImageView(imagePath: ImageConstant.imgSticker, height: 109.adaptSize, width: 109.adaptSize, alignment: Alignment.centerRight, margin: EdgeInsets.only(right: 34.h)), SizedBox(height: 44.v), Text("lbl_order_placed".tr, style: theme.textTheme.headlineMedium), SizedBox(height: 13.v)]))); } 
+/// Navigates to the addOrderScreen when the action is triggered.
+onTapStickerSection(BuildContext context) { NavigatorService.pushNamed(AppRoutes.addOrderScreen, ); } 
+ }

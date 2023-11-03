@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/list1_item_model.dart';import 'package:basri_s_application4/presentation/homepage_todays_rate_one_screen/models/homepage_todays_rate_one_model.dart';part 'homepage_todays_rate_one_event.dart';part 'homepage_todays_rate_one_state.dart';/// A bloc that manages the state of a HomepageTodaysRateOne according to the event that is dispatched to it.
+class HomepageTodaysRateOneBloc extends Bloc<HomepageTodaysRateOneEvent, HomepageTodaysRateOneState> {HomepageTodaysRateOneBloc(HomepageTodaysRateOneState initialState) : super(initialState) { on<HomepageTodaysRateOneInitialEvent>(_onInitialize); }
+
+List<List1ItemModel> fillList1ItemList() { return [List1ItemModel(userImage: ImageConstant.imgChick1, text: "One Day Chicks- Broiler"), List1ItemModel(userImage: ImageConstant.imgRoshdJujehOneDayOldChick, text: "One Day Chicks- Deshi"), List1ItemModel(userImage: ImageConstant.imgEggs21, text: "Hatching Egg Rates")]; } 
+_onInitialize(HomepageTodaysRateOneInitialEvent event, Emitter<HomepageTodaysRateOneState> emit, ) async  { emit(state.copyWith(menuThirtySevenController: TextEditingController())); emit(state.copyWith(homepageTodaysRateOneModelObj: state.homepageTodaysRateOneModelObj?.copyWith(list1ItemList: fillList1ItemList()))); } 
+ }
